@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skin Cancer Detection - Result</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+    <style>
+        #bg_img{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            filter: blur(2px);
+        }
+        section{
+            z-index: 1;
+            position: fixed;
+            top: 10vh;
+            left: 35vw;
+            width: 500px;
+            height: 350px;
+            display: flex;
+            flex-direction: column;
+            background-color: black;
+            border-radius: 10px;
+            align-items: center;
+            padding: 10px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            color: white;
+        }
+        #img{
+            height: 250px;
+            width: 250px;
+        }
+        h1{
+            font-size: 35px;
+            text-transform: uppercase;
+        }
+        #back{
+            font-size: 35px;
+            position: absolute;
+            top: 5px;
+            right: 25px;
+        }
+        button{
+            background-color: black;
+            color: white;
+            border: none;
+            outline: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <img src="../static/bg2.png" alt="" id="bg_img">
+    <section>
+        <img src="{{url_for('send_image', filename=image_name)}}" id="img">
+        <h1>{{ans}}</h1>
+        <button onclick="go_back()" id="back"><i class="far fa-times"></i></button>
+    </section>
+
+    <script>
+        function go_back(){
+            window.history.back();
+        }
+    </script>
+</body>
+</html>
